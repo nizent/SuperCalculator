@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <title>Calculadora Proporcionales</title>
+    <link href="https://vtr.com/vtr/favicon.ico" rel="icon">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="style.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div id="hover_bkgr_fricc" class="hover_bkgr_fricc">
+        <span class="helper"></span>
+        <div id="message">
+            <div id="popupCloseButton" class="popupCloseButton" onclick="deactivateMessage();">&times;</div>
+        </div>
+    </div>
+    
+    <div class="centered_section">
+        <section class="main"> </section>
+        <div class="opening">
+            <img id="VTR_LOGO" src="logo-color-sm-dark.svg">
+            <h1 class="Title">Calculadora de Proporcionales</h1>
+        </div>
+        <form id="Calculadora">
+            <div class="mb-3">
+                <label for="DOM" class="form-label"> Ingrese el DOM del cliente: </label>
+                <input type="number" step="0.001" min="0" class="form-control" name="DOM" id="DOM" required>
+            </div>
+            <div class="mb-3">
+                <label for="SPA" class="form-label"> Renta Servicios Principales plan anterior: </label>
+                <input type="number" step="0.001" class="form-control" name="Renta Servicios principales plan anterior:" id="SPA" required>
+            </div>
+            <div class="mb-3">
+                <label for="SPN" class="form-label"> Renta Servicios Principales nuevo plan: </label>
+                <input type="number" step="0.001" min="0" class="form-control" name="Renta Servicios principales nuevo plan:" id="SPN" required>    
+            </div>
+            <div class="mb-3 row">
+                <div class="col-sm-auto">
+                    <div class="col-sm-auto form-check-inline">
+                        <label for="dcto:" class="col-form-label"> ¿Hay descuentos en el nuevo plan?: </label>
+                    </div>
+                </div>
+                <div class="col-sm-auto form-check form-switch form-switch-lg">
+                    <input type="checkbox" class="form-check-input" name="Si:" id="dcto_cb:">
+                </div>
+                
+                <div class="col">
+                    <input type="number" step="0.001" min="0" class="form-control" placeholder="Ingrese el monto total"  name="#" id="dcto:" disabled>
+                </div>
+            </div>
+            
+            <div class="mb-3 row">
+                <div class="col-sm-auto">
+                    <div class="col-sm-auto form-check-inline">
+                        <label for="SVAa:" class="col-form-label">¿Hay SVA que se mantienen?: </label>
+                    </div>
+                </div>
+                <div class="col SVA_container">
+                    <div class="selected_option" id="SVAa_not">No</div>
+                    <div class="unselected_option" id="SVAa_yes" >Sí</div>
+                </div>
+            </div>
+            <div class="SVA_section" id="add_SVAa_section">
+
+                <div class="mb-3 row">
+                    <div class="col-sm-auto">
+                        <div class="col-sm-auto form-check-inline">
+                            <label for="SVAn:" class="col-form-label">&#9673; D-BOX: </label>
+                        </div>
+                    </div>
+                    
+                    <div class="col-sm-auto form-check form-switch form-switch-lg">
+                        <input type="checkbox" min="0" class="form-check-input" name="Si:" id="SVAa_cb:dbox">
+                    </div>
+                    
+                    <div class="col">
+                        <input type="number" step="0.001" min="0" class="form-control" placeholder="Ingrese monto"  name="#" id="SVAa:dbox" disabled>
+                    </div>
+                </div>
+
+                <div class="mb-3 row">
+                    <div class="col-sm-auto">
+                        <div class="col-sm-auto form-check-inline">
+                            <label for="SVAn:" class="col-form-label"> &#9673; Canales premium: </label>
+                        </div>
+                    </div>
+                    
+                    <div class="col-sm-auto form-check form-switch form-switch-lg">
+                        <input type="checkbox" min="0" class="form-check-input" name="Si:" id="SVAa_cb:cp">
+                    </div>
+                    
+                    <div class="col">
+                        <input type="number" step="0.001" min="0" class="form-control" placeholder="Ingrese monto"  name="#" id="SVAa:cp" disabled>
+                    </div>
+                </div>
+
+                <div class="mb-3 row">
+                    <div class="col-sm-auto">
+                        <div class="col-sm-auto form-check-inline">
+                            <label for="SVAn:" class="col-form-label"> &#9673; Asistencia VTR: </label>
+                        </div>
+                    </div>
+                    
+                    <div class="col-sm-auto form-check form-switch form-switch-lg">
+                        <input type="checkbox" min="0" class="form-check-input" name="Si:" id="SVAa_cb:av">
+                    </div>
+                    
+                    <div class="col">
+                        <input type="number" step="0.001" min="0" class="form-control" placeholder="Ingrese monto"  name="#" id="SVAa:av" disabled>
+                    </div>
+                </div>
+
+                <div class="mb-3 row">
+                    <div class="col-sm-auto">
+                        <div class="col-sm-auto form-check-inline">
+                            <label for="SVAn:" class="col-form-label">&#9673;  Extensores: </label>
+                        </div>
+                    </div>
+                    
+                    <div class="col-sm-auto form-check form-switch form-switch-lg">
+                        <input type="checkbox" min="0" class="form-check-input" name="Si:" id="SVAa_cb:ex">
+                    </div>
+                    
+                    <div class="col">
+                        <input type="number" step="0.001" min="0" class="form-control" placeholder="Ingrese monto"  name="#" id="SVAa:ex" disabled>
+                    </div>
+                </div>
+
+                <div class="mb-3 row">
+                    <div class="col-sm-auto">
+                        <div class="col-sm-auto form-check-inline">
+                            <label for="SVAn:" class="col-form-label">&#9673;  Otros: </label>
+                        </div>
+                    </div>
+                    
+                    <div class="col-sm-auto form-check form-switch form-switch-lg">
+                        <input type="checkbox" min="0" class="form-check-input" name="Si:" id="SVAa_cb:ot">
+                    </div>
+                    
+                    <div class="col">
+                        <input type="number" step="0.001" min="0" class="form-control" placeholder="Ingrese monto"  name="#" id="SVAa:ot" disabled>
+                    </div>
+                </div>
+
+                <div class="mb-3 row">
+                    <div class="col-sm-auto">
+                        <div class="col-sm-auto form-check-inline">
+                            <label for="SVAn:" class="col-form-label"> &#9711; Total: </label>
+                        </div>
+                    </div>
+                    <div class="col-sm-auto form-check form-switch form-switch-lg" style="display: none;">
+                        <input type="checkbox" min="0" class="form-check-input" name="Si:" id="SVAa_cb:" style="display: none;">
+                    </div>
+                    
+                    <div class="col">
+                        <input type="number" step="0.001" min="0" class="form-control" placeholder="Monto total"  name="#" id="SVAa:" disabled>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="mb-3 row">
+                <div class="col-sm-auto">
+                    <div class="col-sm-auto form-check-inline">
+                        <label for="SVAn:" class="col-form-label"> ¿Hay SVA nuevos contratados?: </label>
+                    </div>
+                </div>
+                <div class="col SVA_container">
+                    <div class="selected_option" id="SVAn_not">No</div>
+                    <div class="unselected_option" id="SVAn_yes" >Sí</div>
+                </div>
+            </div>
+            <div  class="SVA_section" id="add_SVAn_section">
+
+                
+                <div class="mb-3 row">
+                    <div class="col-sm-auto">
+                        <div class="col-sm-auto form-check-inline">
+                            <label for="SVAn:" class="col-form-label"> &#9673; D-BOX: </label>
+                        </div>
+                    </div>
+                    
+                    <div class="col-sm-auto form-check form-switch form-switch-lg">
+                        <input type="checkbox" min="0" class="form-check-input" name="Si:" id="SVAn_cb:dbox">
+                    </div>
+                    
+                    <div class="col">
+                        <input type="number" step="0.001" min="0" class="form-control" placeholder="Ingrese monto"  name="#" id="SVAn:dbox" disabled>
+                    </div>
+                </div>
+
+                <div class="mb-3 row">
+                    <div class="col-sm-auto">
+                        <div class="col-sm-auto form-check-inline">
+                            <label for="SVAn:" class="col-form-label">&#9673;  Canales premium: </label>
+                        </div>
+                    </div>
+                    
+                    <div class="col-sm-auto form-check form-switch form-switch-lg">
+                        <input type="checkbox" min="0" class="form-check-input" name="Si:" id="SVAn_cb:cp">
+                    </div>
+                    
+                    <div class="col">
+                        <input type="number" step="0.001" min="0" class="form-control" placeholder="Ingrese monto"  name="#" id="SVAn:cp" disabled>
+                    </div>
+                </div>
+
+                <div class="mb-3 row">
+                    <div class="col-sm-auto">
+                        <div class="col-sm-auto form-check-inline">
+                            <label for="SVAn:" class="col-form-label"> &#9673; Asistencia VTR: </label>
+                        </div>
+                    </div>
+                    
+                    <div class="col-sm-auto form-check form-switch form-switch-lg">
+                        <input type="checkbox" min="0" class="form-check-input" name="Si:" id="SVAn_cb:av">
+                    </div>
+                    
+                    <div class="col">
+                        <input type="number" step="0.001" min="0" class="form-control" placeholder="Ingrese monto"  name="#" id="SVAn:av" disabled>
+                    </div>
+                </div>
+
+                <div class="mb-3 row">
+                    <div class="col-sm-auto">
+                        <div class="col-sm-auto form-check-inline">
+                            <label for="SVAn:" class="col-form-label"> &#9673; Extensores: </label>
+                        </div>
+                    </div>
+                    
+                    <div class="col-sm-auto form-check form-switch form-switch-lg">
+                        <input type="checkbox" min="0" class="form-check-input" name="Si:" id="SVAn_cb:ex">
+                    </div>
+                    
+                    <div class="col">
+                        <input type="number" step="0.001" min="0" class="form-control" placeholder="Ingrese monto"  name="#" id="SVAn:ex" disabled>
+                    </div>
+                </div>
+
+                <div class="mb-3 row">
+                    <div class="col-sm-auto">
+                        <div class="col-sm-auto form-check-inline">
+                            <label for="SVAn:" class="col-form-label"> &#9673; Otros: </label>
+                        </div>
+                    </div>
+                    
+                    <div class="col-sm-auto form-check form-switch form-switch-lg">
+                        <input type="checkbox" min="0" class="form-check-input" name="Si:" id="SVAn_cb:ot">
+                    </div>
+                    
+                    <div class="col">
+                        <input type="number" step="0.001" min="0" class="form-control" placeholder="Ingrese monto"  name="#" id="SVAn:ot" disabled>
+                    </div>
+                </div>
+
+                <div class="mb-3 row">
+                    <div class="col-sm-auto">
+                        <div class="col-sm-auto form-check-inline">
+                            <label for="SVAn:" class="col-form-label"> &#9711; Total: </label>
+                        </div>
+                    </div>
+                    <div class="col-sm-auto form-check form-switch form-switch-lg" style="display: none;">
+                        <input type="checkbox" min="0" class="form-check-input" name="Si:" id="SVAn_cb:">
+                    </div>
+                    <div class="col">
+                        <input type="number" step="0.001" min="0" class="form-control" placeholder="Monto total"  name="#" id="SVAn:" disabled>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mb-3 row">
+                <div class="col-sm-auto form-check-inline">
+                    <label for="CI:" class="col-form-label"> ¿Hay costo de activación o instalación?: </label>
+                </div>
+                <div class="col-sm-auto form-check form-switch form-switch-lg">
+                    <input type="checkbox" min="0" class="form-check-input" name="Si:" id="CI_cb:">
+                </div>
+                
+                <div class="col">
+                    <input type="number" step="0.001" min="0" class="form-control" placeholder="Ingrese monto total"  name="#" id="CI:" disabled>
+                </div>        
+            </div>
+            <button id="submit_button" type="submit" class="btn btn-primary form-control indigo">Calcular!</button>
+        </form>
+        <script src="calculator.js"></script>
+    </div>
+</body>
+</html>
